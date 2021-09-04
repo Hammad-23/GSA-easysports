@@ -10,7 +10,7 @@ import {
 import Header from '../../components/Header';
 import Input from '../../components/input';
 import Button from '../../components/button';
-export default function LogIn({navigation}) {
+export default function Register() {
   return (
     <>
       <Header />
@@ -19,16 +19,22 @@ export default function LogIn({navigation}) {
           source={require('../../assets/home/Home-bg.jpg')}
           style={style.bg}>
           <View style={style.loginForm}>
-            <Text style={style.formHeading}>Anmeldung</Text>
+            <Text style={style.formHeading}>Registrieren</Text>
             <View style={style.inp}>
               <Input placeholder="Nutzername" />
             </View>
             <View style={style.inp}>
-              <Input placeholder="password" />
+              <Input placeholder="Email" />
             </View>
-            <TouchableOpacity style={style.vergessen}>
+            <View style={style.inp}>
+              <Input placeholder="Passwort" />
+            </View>
+            <View style={style.inp}>
+              <Input placeholder="Passwort bestatigen" />
+            </View>
+            {/* <TouchableOpacity style={style.vergessen}>
               <Text style={{color: 'green'}}>Passwort Vergessen?</Text>
-            </TouchableOpacity>
+            </TouchableOpacity> */}
             <View style={style.btn}>
               <Button
                 fontSize={20}
@@ -37,8 +43,8 @@ export default function LogIn({navigation}) {
                 title="Einloggen"
               />
             </View>
-            <TouchableOpacity onPress={()=>{navigation.navigate('register')}} style={style.smallBtn}>
-              <Text style={{color: '#FFFF'}}>Anmelden</Text>
+            <TouchableOpacity style={style.smallBtn}>
+              <Text style={{color: '#FFFF'}}>Anmeldung</Text>
             </TouchableOpacity>
           </View>
         </ImageBackground>
@@ -54,7 +60,7 @@ const style = StyleSheet.create({
   },
   loginForm: {
     backgroundColor: '#FFFF',
-    height: 350,
+    height: 450,
     width: '85%',
     marginTop: 80,
     alignItems: 'center',
@@ -70,13 +76,13 @@ const style = StyleSheet.create({
   },
   btn: {
     width: 270,
-    marginTop: 10,
+    marginTop: 25,
   },
   smallBtn: {
     marginTop: 20,
     backgroundColor: 'green',
     height: 30,
-    width: 80,
+    width: 90,
     borderRadius: 15,
     alignItems: 'center',
     justifyContent: 'center',

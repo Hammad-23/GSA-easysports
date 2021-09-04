@@ -20,7 +20,8 @@ import Icon2 from 'react-native-vector-icons/MaterialIcons';
 import Icon3 from 'react-native-vector-icons/FontAwesome';
 import {Colors} from '../utils/constant';
 import LogIn from '../screens/login/login';
-
+import Home from '../screens/home/home';
+import Register from '../screens/register/register';
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 const AppNavigator = () => {
@@ -31,6 +32,7 @@ const AppNavigator = () => {
           screenOptions={{headerShown: false}}
           initialRouteName="login">
           <Stack.Screen name="login" component={BottomTabs} />
+          <Stack.Screen name="register" component={BottomTabs} />
        
         </Stack.Navigator>
       </NavigationContainer>

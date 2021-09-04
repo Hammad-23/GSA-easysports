@@ -3,6 +3,8 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import LogIn from '../screens/login/login';
 import Home from '../screens/home/home';
+import Register from '../screens/register/register';
+import TrainingPlans from '../screens/trainingPlans/training';
 import {Image} from 'react-native';
 import Feather from 'react-native-vector-icons/Feather';
 import AntDesign from 'react-native-vector-icons/AntDesign';
@@ -15,12 +17,20 @@ const Tab = createBottomTabNavigator();
 
 export default function BottomTabs() {
   return (
-    <Tab.Navigator initialRouteName="home">
-      <Tab.Screen
+    <Tab.Navigator screenOptions={{
+      tabBarLabel:""
+    }}  tabBarOptions={{style:{
+      backgroundColor:"#313d49",
+      
+      
+      
+    }}}  initialRouteName="home">
+      <Tab.Screen  
         options={{
           tabBarIcon: ({color, size}) => (
-            <Ionicons name="home-outline" color="black" size={size} />
+            <Ionicons name="home-outline" color="#FFFF" size={30} />
           ),
+          
         }}
         name="home"
         component={LogIn}
@@ -29,37 +39,37 @@ export default function BottomTabs() {
       <Tab.Screen
         options={{
           tabBarIcon: ({color, size}) => (
-            <Ionicons name="rocket-outline" color="black" size={size} />
+            <Ionicons name="rocket-outline" color="#FFFF" size={30} />
           ),
         }}
         name="search"
+        component={TrainingPlans}
+      />
+      <Tab.Screen
+        options={{
+          tabBarIcon: ({color, size}) => (
+            <Feather name="video" color="#FFFF" size={30} />
+          ),
+        }}
+        name="save"
         component={Home}
       />
       <Tab.Screen
         options={{
           tabBarIcon: ({color, size}) => (
-            <Feather name="video" color="black" size={size} />
-          ),
-        }}
-        name="save"
-        component={LogIn}
-      />
-      <Tab.Screen
-        options={{
-          tabBarIcon: ({color, size}) => (
-            <Ionicons name="musical-notes-outline" color="black" size={size} />
+            <Ionicons name="musical-notes-outline" color="#FFFF" size={30} />
           ),
         }}
         name="location"
-        component={LogIn}
+        component={Register}
       />
       <Tab.Screen
         options={{
           tabBarIcon: ({color, size}) => (
             <MaterialCommunityIcons
               name="newspaper-variant-outline"
-              color="black"
-              size={size}
+              color="#FFFF"
+              size={30}
             />
           ),
         }}
@@ -69,7 +79,7 @@ export default function BottomTabs() {
       <Tab.Screen
         options={{
           tabBarIcon: ({color, size}) => (
-            <Fontisto name="shopping-store" color="black" size={size} />
+            <Fontisto name="shopping-store" color="#FFFF" size={30} />
           ),
         }}
         name="def"
@@ -78,7 +88,7 @@ export default function BottomTabs() {
       <Tab.Screen
         options={{
           tabBarIcon: ({color, size}) => (
-            <SimpleLineIcons name="envelope" color="black" size={size} />
+            <SimpleLineIcons name="envelope" color="#FFFF" size={30} />
           ),
         }}
         name="chat"

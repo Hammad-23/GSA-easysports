@@ -12,12 +12,14 @@ function Button(props) {
         paddingVertical:10,
         alignItems: 'center',
         justifyContent: 'center',
+        borderColor:props.borderColor,
+        borderWidth:props.borderWidth
       }}>
       <Text
         style={{
           textAlign: 'center',
           color: props.color,
-          fontSize: 20,
+          fontSize: props.fontSize,
         }}>
         {props.title}
       </Text>
