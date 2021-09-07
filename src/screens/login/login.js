@@ -37,7 +37,11 @@ export default function LogIn({navigation}) {
                 title="Einloggen"
               />
             </View>
-            <TouchableOpacity onPress={()=>{navigation.navigate('register')}} style={style.smallBtn}>
+            <TouchableOpacity
+              onPress={() => {
+                navigation.navigate('register');
+              }}
+              style={style.smallBtn}>
               <Text style={{color: '#FFFF'}}>Anmelden</Text>
             </TouchableOpacity>
           </View>

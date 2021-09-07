@@ -22,20 +22,21 @@ const Tab = createBottomTabNavigator();
 
 export default function BottomTabs() {
   return (
-    <Tab.Navigator screenOptions={{
-      tabBarLabel:""
-    }}  tabBarOptions={{style:{
-      backgroundColor:"#313d49",
-      
-      
-      
-    }}}  initialRouteName="home">
-      <Tab.Screen  
+    <Tab.Navigator
+      screenOptions={{
+        tabBarLabel: '',
+      }}
+      tabBarOptions={{
+        style: {
+          backgroundColor: '#313d49',
+        },
+      }}
+      initialRouteName="home">
+      <Tab.Screen
         options={{
           tabBarIcon: ({color, size}) => (
             <Ionicons name="home-outline" color="#FFFF" size={30} />
           ),
-          
         }}
         name="home"
         component={UserHome}

@@ -88,13 +88,16 @@ export default function Contact() {
             </MapView>
           </View>
           <View style={style.adress}>
-            <View style={{marginTop:20,marginLeft:20,height:80}} >
-            <Text style={{color: '#FFFF'}}>
-              {' '}
-              Adresse: Ziegelweg 1/1, 72764 Reutlingen{' '}
-            </Text>
-            <Text style={{color: '#FFFF'}}> E-Mail: info@easy-sports.com </Text>
-            <Text style={{color: '#FFFF'}}> Telefon: 07121 144 81 400</Text>
+            <View style={{marginTop: 20, marginLeft: 20, height: 80}}>
+              <Text style={{color: '#FFFF'}}>
+                {' '}
+                Adresse: Ziegelweg 1/1, 72764 Reutlingen{' '}
+              </Text>
+              <Text style={{color: '#FFFF'}}>
+                {' '}
+                E-Mail: info@easy-sports.com{' '}
+              </Text>
+              <Text style={{color: '#FFFF'}}> Telefon: 07121 144 81 400</Text>
             </View>
           </View>
           <View style={style.inpContainer3}>
@@ -137,8 +140,8 @@ const style = StyleSheet.create({
   adress: {
     backgroundColor: '#313d49',
   },
-  inpContainer3:{
+  inpContainer3: {
     marginTop: 30,
-    marginBottom:20
-  }
+    marginBottom: 20,
+  },
 });
