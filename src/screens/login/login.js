@@ -6,13 +6,14 @@ import {
   ImageBackground,
   StyleSheet,
   TouchableOpacity,
+  SafeAreaView
 } from 'react-native';
 import Header from '../../components/Header';
 import Input from '../../components/input';
 import Button from '../../components/button';
 export default function LogIn() {
   return (
-    <>
+    <SafeAreaView style={{flex:1}} >
       <Header />
       <View>
         <ImageBackground
@@ -38,7 +39,7 @@ export default function LogIn() {
           </View>
         </ImageBackground>
       </View>
-    </>
+    </SafeAreaView>
   );
 }
 const style = StyleSheet.create({
