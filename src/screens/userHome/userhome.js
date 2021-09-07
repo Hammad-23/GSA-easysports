@@ -6,12 +6,13 @@ import {
   ImageBackground,
   StyleSheet,
   TouchableOpacity,
+  SafeAreaView
 } from 'react-native';
 import Header from '../../components/Header';
 
 export default function UserHome() {
   return (
-    <>
+    <SafeAreaView style={{flex:1}} >
       <Header />
       <View>
         <ImageBackground
@@ -42,7 +43,7 @@ export default function UserHome() {
           </TouchableOpacity>
         </ImageBackground>
       </View>
-    </>
+    </SafeAreaView>
   );
 }
 
