@@ -13,11 +13,11 @@ export default function TrainingPlans() {
   return (
     <>
       <Header />
-      
+      <ScrollView>
       <ImageBackground
         style={style.bg}
         source={require('../../assets/fitness-home-bg.jpg')}>
-        <ScrollView contentContainerStyle={{alignItems:"center"}}>
+        <View style={{alignItems:"center",width:"100%"}}>
             <View style={style.planBtn}>
                 <Button color="red" borderWidth={2} borderColor="red" bgColor="#FFFF" title="TRAININGSPLAN ZURUCKSETZEN" />
                 <Text style={style.trainTxt} >TRAININGSPLAN</Text>
@@ -26,12 +26,12 @@ export default function TrainingPlans() {
             <View style={style.cardsRow}>
                 <TouchableOpacity style={style.card}>
                     <ImageBackground imageStyle={{ borderRadius: 20}} source={require('../../assets/home/fitness.jpeg')} style={style.cardImg}>
-                        <Text style={{color:"#FFFF"}}>WOUCHE 1</Text>
+                        <Text style={style.week}>WOUCHE 1</Text>
                     </ImageBackground>
                 </TouchableOpacity>
                 <TouchableOpacity style={style.card}>
                     <ImageBackground imageStyle={{ borderRadius: 20}} source={require('../../assets/home/fitness.jpeg')} style={style.cardImg}>
-                        <Text style={{color:"#FFFF"}}>WOUCHE 1</Text>
+                        <Text style={style.week}>WOUCHE 1</Text>
                     </ImageBackground>
                 </TouchableOpacity>
             </View>
@@ -39,25 +39,25 @@ export default function TrainingPlans() {
             <View style={style.cardsRow}>
                 <TouchableOpacity style={style.card}>
                     <ImageBackground imageStyle={{ borderRadius: 20}} source={require('../../assets/home/fitness.jpeg')} style={style.cardImg}>
-                        <Text style={{color:"#FFFF"}}>WOUCHE 1</Text>
+                        <Text style={style.week}>WOUCHE 1</Text>
                     </ImageBackground>
                 </TouchableOpacity>
                 <TouchableOpacity style={style.card}>
                     <ImageBackground imageStyle={{ borderRadius: 20}} source={require('../../assets/home/fitness.jpeg')} style={style.cardImg}>
-                        <Text style={{color:"#FFFF"}}>WOUCHE 1</Text>
+                        <Text style={style.week}>WOUCHE 1</Text>
                     </ImageBackground>
                 </TouchableOpacity>
             </View>
 
-            <View style={style.cardsRow}>
+            <View style={style.cardsRow2}>
                 <TouchableOpacity style={style.card}>
                     <ImageBackground imageStyle={{ borderRadius: 20}} source={require('../../assets/home/fitness.jpeg')} style={style.cardImg}>
-                        <Text style={{color:"#FFFF"}}>WOUCHE 1</Text>
+                        <Text style={style.week}>WOUCHE 1</Text>
                     </ImageBackground>
                 </TouchableOpacity>
                 <TouchableOpacity style={style.card}>
                     <ImageBackground imageStyle={{ borderRadius: 20}} source={require('../../assets/home/fitness.jpeg')} style={style.cardImg}>
-                        <Text style={{color:"#FFFF"}}>WOUCHE 1</Text>
+                        <Text style={style.week}>WOUCHE 1</Text>
                     </ImageBackground>
                 </TouchableOpacity>
             </View>
@@ -65,9 +65,9 @@ export default function TrainingPlans() {
 
 
 
-        </ScrollView>
+        </View>
         </ImageBackground>
-        
+        </ScrollView>
     </>
   );
 }
@@ -79,13 +79,15 @@ const style = StyleSheet.create({
     alignItems: 'center',
   },
   planBtn:{
-      marginTop:10,
-      alignItems:"center"
+      marginTop:20,
+      alignItems:"center",
+      
   },
   trainTxt:{
       color:"#FFFF",
       fontSize:30,
-      fontWeight:"bold"
+      fontWeight:"bold",
+      marginTop:20
   },
   cardImg:{
     height:"100%",
@@ -95,8 +97,8 @@ const style = StyleSheet.create({
     
   },
   card:{
-      height:180,
-      width:170,
+      height:155,
+      width:140,
       
   },
   cardsRow:{
@@ -105,5 +107,18 @@ const style = StyleSheet.create({
     justifyContent:"space-around",
     marginTop:10
 
+  },
+  cardsRow2:{
+    flexDirection:"row",
+    width:"100%",
+    justifyContent:"space-around",
+    marginTop:10,
+    marginBottom:20
+
+  },
+  week:{
+      color:'#FFFF',
+      fontSize:16,
+      fontWeight:"bold"
   }
 });

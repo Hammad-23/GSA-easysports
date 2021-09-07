@@ -4,7 +4,12 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import LogIn from '../screens/login/login';
 import Home from '../screens/home/home';
 import Register from '../screens/register/register';
+import Contact from '../screens/contact/contact';
 import TrainingPlans from '../screens/trainingPlans/training';
+import Shop from '../screens/shop';
+import News from '../screens/news/news';
+import Dashboard from '../screens/dashboard/dashboard';
+import UserHome from '../screens/userHome/userhome';
 import {Image} from 'react-native';
 import Feather from 'react-native-vector-icons/Feather';
 import AntDesign from 'react-native-vector-icons/AntDesign';
@@ -33,7 +38,7 @@ export default function BottomTabs() {
           
         }}
         name="home"
-        component={LogIn}
+        component={UserHome}
       />
 
       <Tab.Screen
@@ -60,8 +65,8 @@ export default function BottomTabs() {
             <Ionicons name="musical-notes-outline" color="#FFFF" size={30} />
           ),
         }}
-        name="location"
-        component={Register}
+        name="music"
+        component={Dashboard}
       />
       <Tab.Screen
         options={{
@@ -74,7 +79,7 @@ export default function BottomTabs() {
           ),
         }}
         name="abc"
-        component={LogIn}
+        component={News}
       />
       <Tab.Screen
         options={{
@@ -83,7 +88,7 @@ export default function BottomTabs() {
           ),
         }}
         name="def"
-        component={LogIn}
+        component={Shop}
       />
       <Tab.Screen
         options={{
@@ -92,7 +97,7 @@ export default function BottomTabs() {
           ),
         }}
         name="chat"
-        component={LogIn}
+        component={Contact}
       />
     </Tab.Navigator>
   );
