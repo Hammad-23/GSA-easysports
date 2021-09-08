@@ -1,12 +1,30 @@
-import React from 'react';
-import {View,Text,TouchableOpacity,ScrollView,StyleSheet,TextInput} from 'react-native';
+import React,{useState} from 'react';
+import {View,Text,TouchableOpacity,ScrollView,StyleSheet,TextInput, SafeAreaView,Image} from 'react-native';
 import Button from '../../components/button';
 import Header from '../../components/Header';
+import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
 
 
 export default function Profile(){
+  const [uri,setUri] = useState('')
+const options={
+  title: 'Select Image',
+  customButtons: [
+    { name: 'customOptionKey', title: 'Choose Photo from Custom Option' },
+  ],
+  storageOptions: {
+    skipBackup: true,
+    path: 'images',
+  },
+}
+  function pickImage() {
+    launchImageLibrary(options,(res)=>{
+      console.log("My REsponse in Image Pick -->> ", res);
+      setUri(res.assets[0].uri)
+    })
+  }
     return(
-        <>
+        <SafeAreaView style={{flex:1}} >
         <Header/>
         <View style={style.main}>
           <View style={style.content}>
@@ -23,11 +41,18 @@ export default function Profile(){
 
             <View style={{marginTop:20}}>
               <Text style={{fontWeight:"bold"}}>Profilbild hochladen:</Text>
+              <TouchableOpacity onPress={()=>pickImage()} style={{marginTop:10, borderColor:"#5f5f5f", borderWidth:1, borderRadius:5, width:'30%',alignItems:"center", paddingVertical:5, backgroundColor:"#dfdfdf"}}>
+                <Text>Choose file</Text>
+              </TouchableOpacity>
+             {uri? <Image source={{uri:uri}} style={{width:"30%",height:100, borderRadius:100, marginTop:10}}  />:<View/>}
             </View>
 
             <View style={{marginTop:20}}>
-               <Text style={{fontWeight:"bold"}}>E-Mail-Adresse:</Text>
-               <TextInput placeholder="Enter" style={style.inp}/>
+               <Text style={{fontWeight:"bold",fontSize:15}}>E-Mail-Adresse:</Text>
+               <TextInput editable={false} value={"abc@gmail.com"} placeholder="Enter" style={style.inp,{color:"grey", borderWidth:1,
+        borderColor:"grey",
+        paddingVertical:8,
+        paddingHorizontal:8}}/>
             
             </View>
 
@@ -37,7 +62,7 @@ export default function Profile(){
                <Text style={{fontSize:11}}> (Lassen si dissess Feld leer, wenn sie lhr passwort </Text>
                </View>
                <Text style={{fontSize:11}}> nicht andern mochten )</Text>
-               <TextInput  style={style.inp}/>
+               <TextInput secureTextEntry={true}  style={style.inp}/>
             
             </View>
             
@@ -63,17 +88,7 @@ export default function Profile(){
           </View>
 
         </View>
-        
-
-
-
-
-
-
-
-
-
-        </>
+      </SafeAreaView>
     )
 }
 const style = StyleSheet.create({
@@ -91,7 +106,9 @@ const style = StyleSheet.create({
     },
     inp:{
         borderWidth:1,
-        borderColor:"grey"
+        borderColor:"grey",
+        paddingVertical:8,
+        paddingHorizontal:8
         
     }
 })

@@ -47,14 +47,16 @@ export default function BottomTabs() {
       tabBarOptions={{
         style: {
           backgroundColor: '#313d49',
+          paddingTop:10,
+          height:90
         },
       }}
       initialRouteName="home">
       {auth ? (
         <Tab.Screen
           options={{
-            tabBarIcon: ({color, size}) => (
-              <Ionicons name="home-outline" color="#FFFF" size={30} />
+            tabBarIcon: ({color, size,focused}) => (
+              <Ionicons name="home-outline" color={focused?"red":"#FFFF"} size={30} />
             ),
           }}
           name="home"
@@ -63,19 +65,18 @@ export default function BottomTabs() {
       ) : (
         <Tab.Screen
           options={{
-            tabBarIcon: ({color, size}) => (
-              <Ionicons name="home-outline" color="#FFFF" size={30} />
+            tabBarIcon: ({color, size,focused}) => (
+              <Ionicons name="home-outline" color={focused?"red":"#FFFF"} size={30} />
             ),
           }}
           name="home"
           component={LogIn}
         />
       )}
-
       <Tab.Screen
         options={{
-          tabBarIcon: ({color, size}) => (
-            <Ionicons name="rocket-outline" color="#FFFF" size={30} />
+          tabBarIcon: ({color, size,focused}) => (
+            <Ionicons name="rocket-outline" color={focused?"red":"#FFFF"} size={30} />
           ),
         }}
         name="search"
@@ -83,8 +84,8 @@ export default function BottomTabs() {
       />
       <Tab.Screen
         options={{
-          tabBarIcon: ({color, size}) => (
-            <Feather name="video" color="#FFFF" size={30} />
+          tabBarIcon: ({color, size,focused}) => (
+            <Feather name="video" color={focused?"red":"#FFFF"} size={30} />
           ),
         }}
         name="save"
@@ -92,8 +93,8 @@ export default function BottomTabs() {
       />
       <Tab.Screen
         options={{
-          tabBarIcon: ({color, size}) => (
-            <Ionicons name="musical-notes-outline" color="#FFFF" size={30} />
+          tabBarIcon: ({color, size,focused}) => (
+            <Ionicons name="musical-notes-outline" color={focused?"red":"#FFFF"} size={30} />
           ),
         }}
         name="music"
@@ -101,10 +102,10 @@ export default function BottomTabs() {
       />
       <Tab.Screen
         options={{
-          tabBarIcon: ({color, size}) => (
+          tabBarIcon: ({color, size,focused}) => (
             <MaterialCommunityIcons
               name="newspaper-variant-outline"
-              color="#FFFF"
+              color={focused?"red":"#FFFF"}
               size={30}
             />
           ),
@@ -114,8 +115,8 @@ export default function BottomTabs() {
       />
       <Tab.Screen
         options={{
-          tabBarIcon: ({color, size}) => (
-            <Fontisto name="shopping-store" color="#FFFF" size={30} />
+          tabBarIcon: ({color, size,focused}) => (
+            <Fontisto name="shopping-store" color={focused?"red":"#FFFF"} size={30} />
           ),
         }}
         name="def"
@@ -123,8 +124,8 @@ export default function BottomTabs() {
       />
       <Tab.Screen
         options={{
-          tabBarIcon: ({color, size}) => (
-            <SimpleLineIcons name="envelope" color="#FFFF" size={30} />
+          tabBarIcon: ({color, size,focused}) => (
+            <SimpleLineIcons name="envelope" color={focused?"red":"#FFFF"} size={30} />
           ),
         }}
         name="chat"
