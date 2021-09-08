@@ -1,9 +1,9 @@
 import React from 'react';
-import {View, Text, StyleSheet, Image} from 'react-native';
+import {View, Text, StyleSheet, Image,SafeAreaView} from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 export default function Cards(props) {
   return (
-    <>
+    <SafeAreaView style={{flex:1}} >
       <View style={style.cards}>
         <View
           style={{
@@ -23,7 +23,7 @@ export default function Cards(props) {
           </View>
         </View>
       </View>
-    </>
+    </SafeAreaView>
   );
 }
 

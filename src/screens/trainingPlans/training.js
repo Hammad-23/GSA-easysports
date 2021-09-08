@@ -6,12 +6,13 @@ import {
   ImageBackground,
   StyleSheet,
   TouchableOpacity,
+  SafeAreaView
 } from 'react-native';
 import Header from '../../components/Header';
 import Button from '../../components/button';
 export default function TrainingPlans() {
   return (
-    <>
+    <SafeAreaView style={{flex:1}} >
       <Header />
       <ScrollView>
         <ImageBackground
@@ -88,7 +89,7 @@ export default function TrainingPlans() {
           </View>
         </ImageBackground>
       </ScrollView>
-    </>
+    </SafeAreaView>
   );
 }
 

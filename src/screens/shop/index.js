@@ -6,12 +6,13 @@ import {
   ImageBackground,
   StyleSheet,
   TouchableOpacity,
+  SafeAreaView
 } from 'react-native';
 import Header from '../../components/Header';
 
 export default function Shop() {
   return (
-    <>
+    <SafeAreaView style={{flex:1}} >
       <Header />
       <View style={style.main}>
         <View style={style.content}>
@@ -36,7 +37,7 @@ export default function Shop() {
           </TouchableOpacity>
         </View>
       </View>
-    </>
+    </SafeAreaView>
   );
 }
 const style = StyleSheet.create({

@@ -7,13 +7,14 @@ import {
   StyleSheet,
   TouchableOpacity,
   TextInput,
+  SafeAreaView
 } from 'react-native';
 import Header from '../../components/Header';
 import Button from '../../components/button';
 import MapView from 'react-native-maps';
 export default function Contact() {
   return (
-    <>
+    <SafeAreaView style={{flex:1}} >
       <Header />
       <ScrollView contentContainerStyle={style.main}>
         <View style={style.content}>
@@ -110,7 +111,7 @@ export default function Contact() {
           </View>
         </View>
       </ScrollView>
-    </>
+    </ SafeAreaView>
   );
 }
 const style = StyleSheet.create({

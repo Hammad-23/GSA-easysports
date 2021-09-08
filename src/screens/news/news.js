@@ -6,12 +6,13 @@ import {
   ImageBackground,
   StyleSheet,
   TouchableOpacity,
+  SafeAreaView
 } from 'react-native';
 import Header from '../../components/Header';
 
 export default function News() {
   return (
-    <>
+    <SafeAreaView style={{flex:1}} >
       <Header />
       <ScrollView>
         <ImageBackground
@@ -44,7 +45,7 @@ export default function News() {
           </TouchableOpacity>
         </ImageBackground>
       </ScrollView>
-    </>
+    </SafeAreaView>
   );
 }
 

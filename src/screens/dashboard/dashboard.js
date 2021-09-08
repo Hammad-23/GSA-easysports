@@ -6,6 +6,7 @@ import {
   ImageBackground,
   StyleSheet,
   TouchableOpacity,
+  SafeAreaView,
 } from 'react-native';
 import Header from '../../components/Header';
 import Feather from 'react-native-vector-icons/Feather';
@@ -17,7 +18,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 // import * as Progress from 'react-native-progress';
 export default function Dashboard() {
   return (
-    <>
+    <SafeAreaView style={{flex:1}} >
       <View style={style.header}>
         <View style={{marginLeft: 20}}>
           <Feather name="menu" size={25} color="#313d49" />
@@ -72,7 +73,7 @@ export default function Dashboard() {
           </View>
         </View>
       </ScrollView>
-    </>
+    </SafeAreaView>
   );
 }
 
