@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import LogIn from '../screens/login/login';
@@ -17,10 +17,28 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 import Fontisto from 'react-native-vector-icons/Fontisto';
 import {color} from 'react-native-reanimated';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import DrawerNavigation from './drawer';
 const Tab = createBottomTabNavigator();
 
 export default function BottomTabs() {
+  const [auth, setAuth] = useState(true);
+  useEffect(async () => {
+    console.log('hello');
+    try {
+      let userName = await AsyncStorage.getItem('nutzername');
+      let afterParsing = JSON.parse(userName);
+      if (afterParsing) {
+        setAuth(true);
+      } else {
+        setAuth(false);
+      }
+      console.log('async--> ', afterParsing);
+    } catch (e) {
+      console.log('error--> ', e.message);
+    }
+  }, [auth]);
+
   return (
     <Tab.Navigator
       screenOptions={{
@@ -32,15 +50,27 @@ export default function BottomTabs() {
         },
       }}
       initialRouteName="home">
-      <Tab.Screen
-        options={{
-          tabBarIcon: ({color, size}) => (
-            <Ionicons name="home-outline" color="#FFFF" size={30} />
-          ),
-        }}
-        name="home"
-        component={UserHome}
-      />
+      {auth ? (
+        <Tab.Screen
+          options={{
+            tabBarIcon: ({color, size}) => (
+              <Ionicons name="home-outline" color="#FFFF" size={30} />
+            ),
+          }}
+          name="home"
+          component={UserHome}
+        />
+      ) : (
+        <Tab.Screen
+          options={{
+            tabBarIcon: ({color, size}) => (
+              <Ionicons name="home-outline" color="#FFFF" size={30} />
+            ),
+          }}
+          name="home"
+          component={LogIn}
+        />
+      )}
 
       <Tab.Screen
         options={{

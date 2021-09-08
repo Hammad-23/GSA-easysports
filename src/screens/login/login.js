@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   View,
   Text,
@@ -8,12 +8,22 @@ import {
   TouchableOpacity,
   SafeAreaView,
 } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import Header from '../../components/Header';
 import Input from '../../components/input';
 import Button from '../../components/button';
 export default function LogIn({navigation}) {
+  const [userName, setUserName] = useState('');
+  const [password, setPassword] = useState('');
+  const login = () => {
+    if (userName === 'asif.saggi@gmail.com' && password === 'Test@123') {
+      AsyncStorage.setItem('nutzername', userName);
+    } else {
+      alert('Wrong username or password');
+    }
+  };
   return (
-    <SafeAreaView style={{flex:1}} >
+    <SafeAreaView style={{flex: 1}}>
       <Header />
       <View>
         <ImageBackground
@@ -22,10 +32,20 @@ export default function LogIn({navigation}) {
           <View style={style.loginForm}>
             <Text style={style.formHeading}>Anmeldung</Text>
             <View style={style.inp}>
-              <Input placeholder="Nutzername" />
+              <Input
+                onChangeText={value => {
+                  setUserName(value);
+                }}
+                placeholder="Nutzername"
+              />
             </View>
             <View style={style.inp}>
-              <Input placeholder="password" />
+              <Input
+                onChangeText={value => {
+                  setPassword(value);
+                }}
+                placeholder="password"
+              />
             </View>
             <TouchableOpacity style={style.vergessen}>
               <Text style={{color: 'green'}}>Passwort Vergessen?</Text>
@@ -36,6 +56,7 @@ export default function LogIn({navigation}) {
                 bgColor="#313d49"
                 color="#FFFF"
                 title="Einloggen"
+                onPress={login}
               />
             </View>
             <TouchableOpacity
