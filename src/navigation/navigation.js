@@ -12,7 +12,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import 'react-native-gesture-handler';
 import {createStackNavigator} from '@react-navigation/stack';
 
-
+import { createDrawerNavigator }  from '@react-navigation/drawer';
 import BottomTabs from './bottomTabs';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -22,19 +22,28 @@ import {Colors} from '../utils/constant';
 import LogIn from '../screens/login/login';
 import Home from '../screens/home/home';
 import Register from '../screens/register/register';
+import Profile from '../screens/profile/profile';
+import DrawerNavigation from './drawer';
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
+const Drawer = createDrawerNavigator();
 const AppNavigator = () => {
   return (
     <View style={{flex: 1, backgroundColor: Colors.primaryColor}}>
       <NavigationContainer>
         <Stack.Navigator
           screenOptions={{headerShown: false}}
-          initialRouteName="login">
-          <Stack.Screen name="login" component={BottomTabs} />
-          <Stack.Screen name="register" component={BottomTabs} />
+          initialRouteName="home">
+          <Stack.Screen name="home" component={BottomTabs} />
+
+          <Stack.Screen name="profile" component={Profile} />
+
+          
+          
        
         </Stack.Navigator>
+        
+        
       </NavigationContainer>
     </View>
   );

@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import Header from '../../components/Header';
 
-export default function UserHome() {
+export default function UserHome({navigation}) {
   return (
     <>
       <Header />
@@ -17,7 +17,7 @@ export default function UserHome() {
         <ImageBackground
           source={require('../../assets/home/Home-bg.jpg')}
           style={style.bg}>
-          <TouchableOpacity style={style.cards}>
+          <TouchableOpacity onPress={()=>{navigation.navigate('profile')}} style={style.cards}>
             <ImageBackground
               style={style.imgBg}
               source={require('../../assets/home/fitness.jpeg')}>

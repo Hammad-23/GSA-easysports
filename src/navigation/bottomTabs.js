@@ -17,7 +17,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 import Fontisto from 'react-native-vector-icons/Fontisto';
 import {color} from 'react-native-reanimated';
-
+import DrawerNavigation from './drawer';
 const Tab = createBottomTabNavigator();
 
 export default function BottomTabs() {
